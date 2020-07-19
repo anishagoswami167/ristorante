@@ -10,8 +10,7 @@ import {
   ListGroupItem,
 } from 'reactstrap';
 
-class DishDetail extends React.PureComponent {
-  renderDish(dish) {
+function RenderDish({dish}) {
     return (
       <Card>
         <CardImg top src={dish.image} alt={dish.name} />
@@ -21,8 +20,8 @@ class DishDetail extends React.PureComponent {
         </CardBody>
       </Card>
     );
-  }
-  renderComments(comments) {
+}
+ function RenderComments({comments}) {
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     return comments.map(comment => (
       <div key={comment.id}>
@@ -36,7 +35,7 @@ class DishDetail extends React.PureComponent {
       </div>
     ));
   }
-  render() {
+  const  DishDetail = (props) => {
     const { dish } = this.props;
     if (dish != null)
       return (
@@ -51,7 +50,7 @@ class DishDetail extends React.PureComponent {
         </div>
       );
     else return <div></div>;
-  }
-}
+
+  }  
 
 export default DishDetail;
